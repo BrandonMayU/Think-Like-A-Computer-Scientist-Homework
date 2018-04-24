@@ -1,11 +1,13 @@
-# Use a for statement to print 10 random numbers.
-# Repeat the above exercise but this time print 10 random numbers between 25 and 35, inclusive.
+# 3 criteria must be taken into account to identify leap years:The year is evenly divisible by 4;If the year can be
+# evenly divided by 100, it is NOT a leap year, unless;The year is also evenly divisible by 400. Then it is a leap
+# year.Write a function that takes a year as a parameter and returns True if the year is a leap year, False otherwise.
 
-import random
+import calendar #Using calendar import allows you to write more effcient code and remove the need to logical statements
 
-count = 1 # This keeps track of how many times the for-loop has looped
-print("2")
-for i in range(10):
+print("We will tell you if a year is a leap year or not")
+year = int(input("Please provide a year: "))
 
-    number = random.randint(25,35)
-    print("Loop: ",count," Random Number: ", number)
+if(calendar.isleap(year) == True): #We see what the func returns and then wrap it with logic for an output
+    print("Correct, that is a leap year")
+else:
+    print("False, ", year, " is not a leap year")
