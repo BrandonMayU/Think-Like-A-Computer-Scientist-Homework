@@ -12,6 +12,7 @@ def isInScreen(w,t):
 
     if turtleX < leftWall or turtleX > rightWall or turtleY > topWall or turtleY < bottomWall:
         t.left(180)
+        wn.bgcolor('red')
         return False
 
     return True
