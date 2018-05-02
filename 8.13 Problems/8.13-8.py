@@ -1,24 +1,21 @@
-import cImage as image
+import image
 
 img = image.Image("testimage.gif")
+win = image.ImageWin(img.getWidth(), img.getHeight())
+img.draw(win)
+img.setDelay(0)   # setDelay(0) turns off animation
 
-width = img.getWidth()
-height = img.getHeight()
+for row in range(img.getHeight()):
+    for col in range(img.getWidth()):
+        p = img.getPixel(col, row)
 
-win = image.ImageWin(img.getWidth(),img.getHeight())
+        newred = p.getRed()/4
+        newgreen = p.getGreen()/4
+        newblue = p.getBlue()/4
 
-print("Image is ", width, " X ", height)
+        newpixel = image.Pixel(newred, newgreen, newblue)
 
-for Wpx in range (width):
-    for Hpx in range (height):
-        p = img.getPixel(Wpx,Hpx)
-
-        newRed = 255-p.getRed()
-        newGreen = 255-p.getGreen()
-        newBlue = 255-p.getBlue()
-
-        newPixel = image.Pixel(newRed,newGreen,newBlue)
-
-        img.setPixel(Wpx,Hpx,newPixel)
+        img.setPixel(col, row, newpixel)
 
 img.draw(win)
+win.exitonclick()
