@@ -1,4 +1,4 @@
-import image
+import cImage as image
 
 img = image.Image("testimage.gif")
 win = image.ImageWin(img.getWidth(), img.getHeight())
